@@ -6,7 +6,7 @@ using UnityEngine;
 
 public class Player : MonoBehaviour
 {
-    private int value = 5;
+    private float value = 5;
     private string name;
     private int age;
     Player()
@@ -16,10 +16,45 @@ public class Player : MonoBehaviour
     }
     void Start()
     {
-        //DebugLog();
-        //DebugFormatLog();
+        DebugLog();
+        DebugFormatLog();
         DebugBehavior();
+        DebugAssert();
+        DebugLogAssertion();
     }
+    private void Update()
+    {
+        Debug.ClearDeveloperConsole();
+        //value+=value*Time.deltaTime;
+        //Debug.Log($"Value: {value}");
+        //if (value > 20 )
+        //{
+        //    //DebugBreak();
+           
+        //}
+    }
+    void DebugBreak()
+    {
+        Debug.Break();
+        Debug.ClearDeveloperConsole();
+    }
+    
+    void DebugLogAssertion()
+    {
+        if (age> 18)
+        {
+            Debug.LogAssertion("Kullanýcý 18 yaþýndan büyük");
+        }
+        Debug.Break();
+        Debug.DebugBreak();
+
+    }
+    void DebugAssert()
+    {
+
+        Debug.Assert(age <= 15, "Kullanýcý 18 yaþýndan küçük");
+    }
+
     void DebugBehavior()
     {
         int live = 5;
